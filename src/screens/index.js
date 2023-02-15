@@ -4,3 +4,6 @@ export { default as MyProfile } from "./MyProfile";
 export { default as Search } from "./Search";
 export { default as Settings } from "./Settings";
 export { default as Wishlist } from "./Wishlist";
+export { default as Inicio } from "./Inicio";
+export { default as Login } from "./Login";
+export { default as SignUp } from "./SignUp";
