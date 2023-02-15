@@ -3,12 +3,12 @@ import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import space from "../../design-system/common/space";
 
-const GradientContainer = ({ children }) => {
+const GradientContainer = ({ children, color1, color2, loc1, loc2 }) => {
   return (
     <LinearGradient
-      style={{ marginHorizontal: -space.S, paddingTop: 30 }}
-      colors={["transparent", "rgba(0, 0, 0, 0.05)"]}
-      locations={[0.2, 1]}
+      colors={[color1, color2]}
+      locations={[loc1, loc2]}
+      style={{ justifyContent: "space-around", alignItems: "center", flex: 1 }}
     >
       {children}
     </LinearGradient>

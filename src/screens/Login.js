@@ -1,99 +1,102 @@
-import { StyleSheet,  ImageBackground, TextInput, TouchableOpacity, View, Text} from 'react-native';
-import { useState } from 'react';
+import { StyleSheet, ImageBackground, View, Text, Image } from "react-native";
+import { InputDeTexto, PrimaryButton } from "../elements";
+import colors from "../design-system/theme/light-theme/colors";
 
-export default function Login({navigation: {navigate}}) {
-   
-  const image= require("../assets/login.png");
+export default function Login({ navigation: { navigate } }) {
+  const image = require("../assets/loginFundo.png");
+  const imageLogin = require("../assets/loginImg.png");
   return (
-    <ImageBackground source={image} style={styles.container}>
-        <View style={styles.op}>
-            <Text style={styles.texto}>Login</Text>
-            <Text style={styles.texto} onPress={() => navigate("SignUp")}>Sign Up</Text>
+    <ImageBackground
+      source={image}
+      resizeMode="stretch"
+      style={styles.container}
+    >
+      <View
+        style={{
+          justifyContent: "center",
+          marginBottom: 140,
+          height: 240,
+          width: 350,
+        }}
+      >
+        <View style={{ marginStart: "auto", flexDirection: "row" }}>
+          <Text
+            style={{
+              marginEnd: 20,
+              color: colors.primary,
+              fontWeight: "bold",
+              fontSize: 20,
+            }}
+          >
+            Login
+          </Text>
+          <Text style={styles.texto} onPress={() => navigate("SignUp")}>
+            Sign Up
+          </Text>
         </View>
-        
-        <View>
-            <TextInput 
-               type="text" 
-               placeholder='email' 
-               style={styles.email} 
-               
-               />
 
-            <TextInput 
-               type="password" 
-               placeholder='palavra-passe' 
-               style={styles.pass} 
-               
-               />
-
-        <TouchableOpacity style={styles.B} onPress={() => navigate("Home")}/>
-
+        <View style={{ alignItems: "center", marginVertical: 10 }}>
+          <Image source={imageLogin} />
         </View>
-        
-        <Text style={styles.Visitante} onPress={() => navigate("Home")}>Visitante </Text>
-        
+
+        <View style={{ flex: 1, alignItems: "center" }}>
+          <InputDeTexto
+            placeholder={"Endereço electrónico"}
+            icon={"email-box"}
+          />
+          <InputDeTexto
+            placeholder={"Palavra-passe"}
+            icon={"form-textbox-password"}
+          />
+          <PrimaryButton onPress={() => navigate("Home")} />
+          <Text
+            style={{
+              marginTop: 10,
+              color: colors.primary,
+              fontWeight: "bold",
+              fontSize: 17,
+            }}
+            onPress={() => {
+              navigate("Visitor");
+            }}
+          >
+            Visitante
+          </Text>
+        </View>
+      </View>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
- container:{
+  container: {
     flex: 1,
-    width: "100%",
-    height: "100%",
- },
+    justifyContent: "center",
+    alignItems: "center",
+  },
 
-op:{
-    display: "flex",
-    flexDirection: "row",
-    marginLeft: 222,
-    opacity: 0.10,
-},
-
- texto:{
+  texto: {
     fontSize: 20,
     color: "#676464",
-    marginTop: 176,
-    marginLeft: 17,
-    
- },
+  },
 
- email:{
+  email: {
     borderRadius: 50,
-    marginLeft: 25,
-    marginRight: 55,
     height: 20,
     backgroundColor: "white",
     fontSize: 25,
-    marginTop: 220,
     alignItems: "center",
-    justifyContent:"center",
- },
+    justifyContent: "center",
+  },
 
- pass: {
+  pass: {
     borderRadius: 50,
     marginLeft: 25,
     marginRight: 55,
     height: 20,
     backgroundColor: "#FFFFFF",
     fontSize: 25,
-    marginTop: 29,
     alignItems: "center",
-    justifyContent:"center",
- },
- 
- B: {
-    borderRadius: 10,
-    backgroundColor: "#FFFFFF",
-    opacity: 0.10,
-    height: 25,
-    marginTop: 45,
-    width: 345,
- },
-
- Visitante:{
-    marginTop: 57,
-    marginLeft: 165,
-    opacity: 0.10,
- },
+    justifyContent: "center",
+  },
 });
