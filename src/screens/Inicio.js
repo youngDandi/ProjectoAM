@@ -1,41 +1,56 @@
-import { ScreenContainer, SearchInput } from "../elements";
+import { ScreenContainer, SearchInput, GradientContainer } from "../elements";
 import { BlocksMenu } from "../components";
-import { StyleSheet,  ImageBackground, TouchableOpacity, Text} from 'react-native';
-const Inicio = ({navigation: {navigate}}) => {
-  const image= require("../assets/inicio.png");
+import {
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+  Text,
+  Image,
+  View,
+} from "react-native";
+import colors from "../design-system/theme/light-theme/colors";
+const Inicio = ({ navigation: { navigate } }) => {
+  const logo = require("../assets/logo.png");
+  const fundo = require("../assets/fundoInicial.png");
   return (
-    <ImageBackground source={image} style={styles.container}>
+    <ImageBackground
+      source={fundo}
+      style={styles.container}
+      resizeMode="stretch"
+    >
+      <Image source={logo} style={{ width: 200, height: 200 }} />
 
-      
-       <TouchableOpacity style={styles.botao} onPress={() => navigate("Login")}>
-       </TouchableOpacity> 
+      <Text style={styles.menssagem}>Vamos Começar!</Text>
+      <TouchableOpacity>
+        <Text style={styles.botao} onPress={() => navigate("Login")}>
+          Entrar
+        </Text>
+      </TouchableOpacity>
     </ImageBackground>
   );
-  
 };
 
 const styles = StyleSheet.create({
-  container:{
-     flex: 1,
-     width: "100%",
-     height: "100%",
+  container: {
+    flex: 1,
+    justifyContent: "space-around",
+    alignItems: "center",
   },
- 
-  botao:{
-     borderRadius: 50,
-     widht: "90%",
-     backgroundColor: "#D9D9D9",
-     opacity: 0.05,
-     marginTop: 765,
-     marginLeft: 75,
-     marginRight: 67,
-     height: 45,
+  menssagem: {
+    color: "#FFF",
+    fontSize: 32,
+    fontWeight: "bold",
   },
- 
-  Tbotao:{
-   color:"#FFFFFF",
+  botao: {
+    borderRadius: 10,
+    backgroundColor: "#FFF",
+    padding: 20,
+    overflow: "hidden",
+    fontSize: 18,
+    color: colors.primary,
+    fontWeight: "bold",
+    paddingHorizontal: 90,
   },
- 
- });
- 
+});
+
 export default Inicio;
