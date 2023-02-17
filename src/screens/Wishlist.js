@@ -1,12 +1,10 @@
 import { ScreenContainer, SearchInput } from "../elements/";
 import { BlocksMenu } from "../components/";
+import { Text } from "react-native";
 
 const Wishlist = () => {
   return (
-    <ScreenContainer>
-      <SearchInput />
-      <BlocksMenu title="Categorias" />
-    </ScreenContainer>
+    <Text>Erraste kkk</Text>
   );
 };
 

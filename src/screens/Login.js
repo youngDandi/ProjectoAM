@@ -6,6 +6,7 @@ import {
     Image,
     TextInput,
 } from "react-native";
+import axios from "axios";
 import { InputDeTexto, PrimaryButton } from "../elements";
 import colors from "../design-system/theme/light-theme/colors";
 import { useState } from "react";
@@ -18,15 +19,24 @@ export default function Login({ navigation: { navigate } }) {
     const [password, setPassword] = useState("");
 
     const handleLogin = async () => {
-        const response = await fetch("http://localhost:3001/users");
-        const data = await response.json();
-        const user = data.users.find(
-            (u) => u.username === username && u.password === password
-        );
-        if (user) {
-            () => navigate("Home");
-        } else {
-            navigate("MyBooks");
+        try {
+            const response = await axios.get("http://192.168.1.2:3001/users", {
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            console.log(response);
+            const user = response.data.find(
+                (u) => u.username === username && u.password === password
+            );
+            if (user) {
+                alert("Seja bem-vindo", username);
+                navigate("Home");
+            } else {
+                alert("Nome de usuario ou palavra-passe incorretos!");
+            }
+        } catch (error) {
+            console.log(error);
         }
     };
 

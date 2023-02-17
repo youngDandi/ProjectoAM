@@ -15,7 +15,7 @@ export default function SignUp({ navigation: { navigate } }) {
     const handleSignUp = async () => {
         const newUser = { username, password, email, endereco };
         try {
-            await axios.post("http://192.168.1.13:3001/users", newUser, {
+            await axios.post("http://192.168.1.2:3001/users", newUser, {
                 headers: {
                     "Content-Type": "application/json",
                 },
