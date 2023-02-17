@@ -8,11 +8,32 @@
       "id": 1
     },
     {
+      "username": "Aurio",
+      "password": "12345",
+      "email": "Aurio@gmail.com",
+      "endereco": "Camama",
+      "id": 5
+    },
+    {
       "username": "Marco",
-      "password": "123456789",
-      "email": "Marco@gmail.com",
-      "endereco": "Talatona",
-      "id": 2
+      "password": "12345",
+      "email": "Marco1@gmail.com",
+      "endereco": "Camama",
+      "id": 6
+    },
+    {
+      "username": "Marcelo",
+      "password": "12345",
+      "email": "Marcelo@gmail.com",
+      "endereco": "Camama",
+      "id": 7
+    },
+    {
+      "username": "Leandro",
+      "password": "12345",
+      "email": "Leonce@gmail.com",
+      "endereco": "Camama",
+      "id": 8
     }
   ]
 }

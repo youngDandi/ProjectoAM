@@ -30,9 +30,10 @@ export default function Login({ navigation: { navigate } }) {
                 (u) => u.username === username && u.password === password
             );
             if (user) {
+                alert("Seja bem-vindo", username);
                 navigate("Home");
             } else {
-                navigate("Wishlist");
+                alert("Nome de usuario ou palavra-passe incorretos!");
             }
         } catch (error) {
             console.log(error);
